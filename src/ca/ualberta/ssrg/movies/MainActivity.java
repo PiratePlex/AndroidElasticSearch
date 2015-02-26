@@ -79,6 +79,7 @@ public class MainActivity extends Activity {
 
 		// Refresh the list when visible
 		// TODO: Search all
+		movieManager.searchMovies("", null);
 		
 	}
 	
@@ -132,6 +133,15 @@ public class MainActivity extends Activity {
 
 	class SearchThread extends Thread {
 		// TODO: Implement search thread
+		private ESMovieManager movieManager;
+		private int movieId;
+		public SearchThread(int movieId){
+			this.movieId = movieId;
+		}
+		@Override
+		public void run(){
+			movieManager.getMovie(movieId);
+		}
 		
 	}
 
